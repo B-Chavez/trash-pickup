@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1sv8"]
 height = 42.0
 
-[node name="trash" type="RigidBody2D"]
+[node name="trash" type="RigidBody2D" groups=["collectible"]]
 freeze = true
 script = ExtResource("1_b1sv8")
 

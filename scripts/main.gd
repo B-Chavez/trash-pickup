@@ -25,6 +25,8 @@ var trash_types = [
 	
 ]
 
+var pickup_range:= 50 #Distance that the trash needs to be within to be picked up
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(10): #This loops the code 10 times, creating 10 pieces of trash
@@ -47,5 +49,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	pass
