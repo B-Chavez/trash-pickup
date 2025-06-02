@@ -3,8 +3,11 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @export var inventory = []
+@export var inventory_offset := Vector2(0, -50) #How far above the player the inventory is
 
 var pickup_range = 50 #Distance within which the player can pick up items
+
+var isInvOpen = false
 
 func _ready() -> void:
 	pass
@@ -40,7 +43,8 @@ func _process(delta: float) -> void:
 				print("--------------------")
 				
 				break
-				
+	if Input.is_action_just_pressed("opencloseInventory"):
+		open_inventory()
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO #Start with no movement
@@ -74,3 +78,19 @@ func _on_trash_picked_up(item_type: int) -> void:
 	print("Picked up trash type: ", item_type)
 	inventory.append(trash_name) #Add the item to the inventory
 	print("Current Inventory: ", inventory)
+
+func open_inventory():
+	var inv = get_node("/root/Inventory")
+	var playerPosition = get_node(".")
+	if isInvOpen:
+		inv.visible = false
+		isInvOpen = false
+		print("Inventory is closed")
+	else:
+		inv.visible = true
+		isInvOpen = true
+		print("Inventory is open")
+		
+		#Compute players golbal position
+		inv.global_position = playerPosition.global_position + inventory_offset
+			
