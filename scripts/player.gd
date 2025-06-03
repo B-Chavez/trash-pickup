@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 				#Add to inventory
 				inv_node.add_child(trash)
 				
+				
 				#print entire tree of Inventory to console
 				print("---- Inventory now contains: ----")
 				for child in inv_node.get_children():
@@ -80,7 +81,7 @@ func _on_trash_picked_up(item_type: int) -> void:
 	print("Current Inventory: ", inventory)
 
 func open_inventory():
-	var inv = get_node("/root/Inventory")
+	var inv = get_node("/root/canvasLayer/Inventory")
 	var playerPosition = get_node(".")
 	if isInvOpen:
 		inv.visible = false

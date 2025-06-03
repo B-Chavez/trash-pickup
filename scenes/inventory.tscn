@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://ctulsufxsaf4c" path="res://scripts/inventory.gd" id="1_hj2ta"]
 [ext_resource type="Texture2D" uid="uid://d1joimi17c3p1" path="res://assets/inventoryTexture.png" id="2_ty45s"]
 
-[node name="Inventory" type="Node2D"]
+[node name="canvasLayer" type="CanvasLayer"]
 script = ExtResource("1_hj2ta")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Inventory" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Inventory"]
 position = Vector2(200.552, 181.75)
 scale = Vector2(5.17816, 5.17816)
 texture = ExtResource("2_ty45s")
